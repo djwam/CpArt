@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!----se configura el usuario de registo--->
+		<title>registo</title>
+		<link rel="stylesheet" href="/resources/css/Registro.css" />
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<!---esta es la vista del lider el cual no podra crear a otro lider ya 
+					que este es  exclusivo para el administrador de la aplicacion-->
+	<body>
+		<div class="container">
+			<div class="row g-2 container">
+				<div class="col">
+					<div class="rounded">
+						<img class="logo" src="/resources/img/2.png" alt="" /><br />
+					</div>
+				</div>
+				<div class="col">
+					<h6 class="card-title">
+						Se requieren estos datos para la la creacion de un usuario y la creacion
+						de su perfil aca solo la puede crear un lider
+					</h6>
+				</div>
+				<h5 class="card-title">Datos Personales</h5>
+				<form class="row" action="regis" method="POST">
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Nombres<span class="text-danger">*</span></label
+						>
+						<input
+							type="text"
+							id="nombres"
+							name="nombres"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Apellidos<span class="text-danger">*</span></label
+						>
+						<input
+							type="text"
+							id="apellidos"
+							name="apellidos"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold" for="rol"
+							>Tipo Documento<span class="text-danger">*</span></label
+						>
+						<select name="documento" id="documento" type="text" class="form-select">
+							<option selected></option>
+							<option value="ti">Ti</option>
+							<option value="cc">Cc</option>
+							<option value="pasaporte">Pasaporte</option>
+						</select>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Numero Documento<span class="text-danger">*</span></label
+						>
+						<input
+							type="text"
+							name="identificacion"
+							id="identificacion"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Genero<span class="text-danger">*</span></label
+						>
+						<select
+							name="genero"
+							id="genero"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option selected></option>
+							<option value="femenino">Femenino</option>
+							<option value="masculino">Masculino</option>
+							<option value="otro">otro</option>
+						</select>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Fecha Vinculacion<span class="text-danger">*</span></label
+						>
+						<input
+							name="fechavinculacion"
+							id="fechavinculacion"
+							type="date"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Remuneracion<span class="text-danger">*</span></label
+						>
+						<input
+							name="remuneracion"
+							id="remuneracion"
+							type="text"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Estado Perfil<span class="text-danger">*</span></label
+						>
+						<select
+							name="estadoperfil"
+							id="estadoperfil"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option selected></option>
+							<option value="activo">Activo</option>
+							<option value="inactivo">Inactivo</option>
+						</select>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Email<span class="text-danger">*</span></label
+						>
+						<input
+							name="email"
+							id="email"
+							type="email"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Telefono<span class="text-danger">*</span></label
+						>
+						<input
+							name="telefono"
+							id="telefono"
+							type="text"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Direccion<span class="text-danger">*</span></label
+						>
+						<input
+							name="direccion"
+							id="direccion"
+							type="text"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<!---esta es la vista del lider el cual no podra crear a otro lider ya 
+						que este es  exclusivo para el administrador de la aplicacion-->
+						<label class="font-weight-bold"
+							>Tipo Usuario<span class="text-danger">*</span></label
+						>
+						<select
+							name="tipousuario"
+							id="tipousuario"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option selected></option>
+							<option value="userMetodologia">Usuario Metogologia</option>
+							<option value="userExterno">Usuario Externo</option>
+						</select>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Area Desempeño<span class="text-danger">*</span></label
+						>
+						<select
+							name="dependencia"
+							id="dependencia"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option selected></option>
+							<option value="semillas">Semillas del futuro</option>
+							<option value="union">Union entre comunas</option>
+							<option value="cuerpos">Cuerpos gramaticales</option>
+							<option value="plantas">Plantas de memoria</option>
+							<option value="partido">Partido de las doñas</option>
+						</select>
+					</div>
+					<div class="col-8">
+						<label class="font-weight-bold"
+							>Informacion Adicional<span class="text-danger">*</span></label
+						>
+						<input
+							name="comentario"
+							id="comentario"
+							type="text"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div style="display: inline">
+						<input type="submit" class="btn btn-primary" value="enviar" />
+						<a href="/landi_page" class="btn btn-danger">Cancelar</a>
+					</div>
+				</form>
+			</div>
+			<br />
+
+			<div class="row g-2 container">
+				<h5 class="card-title">Crear Perfil</h5>
+				<form class="row" action="registrous" method="POST">
+					<div class="col-6">
+						<label class="font-weight-bold" for="user"
+							>Usuario<span class="text-danger">*</span></label
+						>
+						<input
+							name="user"
+							id="user"
+							type="text"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-6">
+						<label class="font-weight-bold"
+							>Nombres<span class="text-danger">*</span></label
+						>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-6">
+						<label class="font-weight-bold"
+							>Rol<span class="text-danger">*</span></label
+						>
+						<select name="rol" type="text" id="rol" class="form-select">
+							<option selected></option>
+							<option value="1ider">Lider Metodologia</option>
+							<option value="userMetodologia">Usuario Metogologia</option>
+							<option value="userExterno">Usuario Externo</option>
+						</select>
+					</div>
+					<div class="col-6">
+						<label class="font-weight-bold"
+							>Contraseña<span class="text-danger">*</span></label
+						>
+						<input
+							name="pass"
+							id="pass"
+							type="password"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div style="display: inline">
+						<a href="/landi_page" class="btn btn-danger">Cancelar</a
+						><input type="submit" class="btn btn-primary" value="Guardar" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		<% if(typeof alert != "undefined"){%>
+		<script>
+			Swal.fire({
+				tite: "<%=alertTitle%>",
+				text: "<%=alertMessage%>",
+				icon: "<%=alertIcon%>",
+				showConfirmButton: "<%=showConfirmButton%>",
+				timer: "<%=timer%>",
+			}).then(() => {
+				window.location = "/registrous.ejs <%=ruta%>";
+			});
+		</script>
+		<%}%>
+	</body>
+</html>

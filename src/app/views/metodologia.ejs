@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login de usuario</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="/resources/css/Registro.css" />
+	</head>
+	<!-- acase configura el login para iniciar al sistema
+ -->
+
+	<body>
+		<div class="container-fluid">
+			<!-- desde aca empieza el primer container
+                de tarjetas las tres tarjetas para cada una en container col -->
+			<br />
+			<div class="row align-items-start">
+				<!-- barra de la navegacion-->
+				<div class="col-4">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<div class="container-fluid">
+							<a class="navbar-brand" href="/landi_page">Inicio</a>
+							<button
+								class="navbar-toggler"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#navbarScroll"
+								aria-controls="navbarScroll"
+								aria-expanded="false"
+								aria-label="Toggle navigation"
+							>
+								<span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarScroll">
+								<form class="d-flex">
+									<input
+										class="form-control me-2"
+										type="search"
+										placeholder="Buscar"
+										aria-label="Search"
+									/>
+									<button class="btn btn-outline-success" type="submit">Buscar</button>
+								</form>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<br />
+
+			<div class="col-12">
+				<div class="card mx-4 my-3">
+					<div class="card-body border border-5">
+						<h4 class="card-title">Metodologia</h4>
+						<a href="/registrous" class="btn btn-primary">Crear Usuario</a>
+						<div class="row border border-5 mx-4 my-3">
+							<div class="col-3 mx-1 my-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Nombre de la actividad"
+									aria-label="First name"
+								/>
+							</div>
+							<div class="col-3 mx-1 my-3">
+								<input
+									type="date"
+									class="form-control"
+									placeholder="Fecha Inicial"
+									aria-label="Fecha"
+								/>
+							</div>
+							<div class="col-3 mx-1 my-3">
+								<input
+									type="date"
+									class="form-control"
+									placeholder="Fecha Final"
+									aria-label="Fecha"
+								/>
+							</div>
+							<div class="col-2 mx-1 my-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Participantes"
+									aria-label="First name"
+								/>
+							</div>
+							<br />
+							<div class="col-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Metodologia"
+									aria-label="First name"
+								/>
+							</div>
+							<br />
+							<div class="col-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Costo Total"
+									aria-label="First name"
+								/>
+							</div>
+							<div class="col-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Lider"
+									aria-label="First name"
+								/>
+							</div>
+							<div class="col-3">
+								<input
+									type="text"
+									class="form-control"
+									placeholder="Costo Metodologia"
+									aria-label="First name"
+								/>
+							</div>
+							<div class="col-1 mx-1 my-4">
+								<div class="form-group">
+									<a href="/registrous" class="btn btn-success">Guardar</a>
+								</div>
+							</div>
+							<div class="col-1 mx-1 my-4">
+								<div class="form-group">
+									<a href="/tabla" class="btn btn-success">Usuarios</a>
+								</div>
+							</div>
+							<div class="col-1 mx-1 my-4">
+								<div class="form-group">
+									<a href="/plantilla" class="btn btn-success">Inventario</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
