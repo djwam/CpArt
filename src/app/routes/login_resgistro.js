@@ -50,7 +50,7 @@ module.exports = app => {
     });
     //Conexion a los query en las BD para agregar registros al inventarios
     app.get('/plantilla', (req, res) => {
-        connection.query("SELECT * FROM inventario", (err, result) => {
+        connection.query("SELECT * FROM inventarios", (err, result) => {
             res.render('../views/plantilla.ejs', {
                 inventario: result
             });
@@ -60,7 +60,7 @@ module.exports = app => {
     app.post('/plantilla', (req, res) => {
         const { nombreInventario, tipo, unidades, costo, fechaCaducidad,
             descripcion, estado, fechaUltimoInventario } = req.body;
-        connection.query("INSERT INTO inventario SET ?", {
+        connection.query("INSERT INTO inventarios SET ?", {
             nombreInventario: nombreInventario,
             tipo: tipo,
             unidades: unidades,
@@ -169,5 +169,7 @@ module.exports = app => {
             })
     })
 }
+
+//mysql://b2293530885293:c9c3396f@us-cdbr-east-04.cleardb.com/heroku_619f4895c186a5c?reconnect=true
 
 

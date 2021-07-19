@@ -1,0 +1,217 @@
+2021-07-15T13:13:11.974144+00:00 app[web.1]: memory, and will not scale past a single process.
+2021-07-15T13:13:12.092707+00:00 app[web.1]: servidor en el puerto 31019
+2021-07-15T13:13:12.100693+00:00 app[web.1]: error when connecting to db: Error: connect ECONNREFUSED 127.0.0.1:3306
+2021-07-15T13:13:12.100694+00:00 app[web.1]: at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1148:16)
+2021-07-15T13:13:12.100695+00:00 app[web.1]: --------------------
+2021-07-15T13:13:12.100696+00:00 app[web.1]: at Protocol._enqueue (/app/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+2021-07-15T13:13:12.100696+00:00 app[web.1]: at Protocol.handshake (/app/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+2021-07-15T13:13:12.100697+00:00 app[web.1]: at PoolConnection.connect (/app/node_modules/mysql/lib/Connection.js:116:18)
+2021-07-15T13:13:12.100697+00:00 app[web.1]: at Pool.getConnection (/app/node_modules/mysql/lib/Pool.js:48:16)
+2021-07-15T13:13:12.100698+00:00 app[web.1]: at handleDisconnect (/app/src/config/db.js:16:16)
+2021-07-15T13:13:12.100699+00:00 app[web.1]: at Object.<anonymous> (/app/src/config/db.js:32:1)
+2021-07-15T13:13:12.100699+00:00 app[web.1]: at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2021-07-15T13:13:12.100700+00:00 app[web.1]: at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+2021-07-15T13:13:12.100700+00:00 app[web.1]: at Module.load (internal/modules/cjs/loader.js:950:32)
+2021-07-15T13:13:12.100700+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:790:14) {
+2021-07-15T13:13:12.100701+00:00 app[web.1]: errno: -111,
+2021-07-15T13:13:12.100702+00:00 app[web.1]: code: 'ECONNREFUSED',
+2021-07-15T13:13:12.100702+00:00 app[web.1]: syscall: 'connect',
+2021-07-15T13:13:12.100702+00:00 app[web.1]: address: '127.0.0.1',
+2021-07-15T13:13:12.100703+00:00 app[web.1]: port: 3306,
+2021-07-15T13:13:12.100703+00:00 app[web.1]: fatal: true
+2021-07-15T13:13:12.100704+00:00 app[web.1]: }
+2021-07-15T13:13:13.094014+00:00 heroku[web.1]: State changed from starting to up
+2021-07-15T13:13:14.103852+00:00 app[web.1]: /app/node_modules/mysql/lib/PoolConfig.js:10
+2021-07-15T13:13:14.103857+00:00 app[web.1]: this.acquireTimeout     = (options.acquireTimeout === undefined)
+2021-07-15T13:13:14.103857+00:00 app[web.1]: ^
+2021-07-15T13:13:14.103858+00:00 app[web.1]: 
+2021-07-15T13:13:14.103859+00:00 app[web.1]: TypeError: Cannot read property 'acquireTimeout' of undefined
+2021-07-15T13:13:14.103859+00:00 app[web.1]: at new PoolConfig (/app/node_modules/mysql/lib/PoolConfig.js:10:38)
+2021-07-15T13:13:14.103860+00:00 app[web.1]: at Object.createPool (/app/node_modules/mysql/index.js:26:28)
+2021-07-15T13:13:14.103860+00:00 app[web.1]: at Timeout.handleDisconnect [as _onTimeout] (/app/src/config/db.js:14:24)
+2021-07-15T13:13:14.103860+00:00 app[web.1]: at listOnTimeout (internal/timers.js:557:17)
+2021-07-15T13:13:14.103861+00:00 app[web.1]: at processTimers (internal/timers.js:500:7)
+2021-07-15T13:13:14.126873+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2021-07-15T13:13:14.127346+00:00 app[web.1]: npm ERR! errno 1
+2021-07-15T13:13:14.136469+00:00 app[web.1]: npm ERR! clase_login@1.0.0 start: `node src/index.js`
+2021-07-15T13:13:14.136680+00:00 app[web.1]: npm ERR! Exit status 1
+2021-07-15T13:13:14.136885+00:00 app[web.1]: npm ERR!
+2021-07-15T13:13:14.137050+00:00 app[web.1]: npm ERR! Failed at the clase_login@1.0.0 start script.
+2021-07-15T13:13:14.137217+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2021-07-15T13:13:14.149817+00:00 app[web.1]: 
+2021-07-15T13:13:14.150205+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2021-07-15T13:13:14.150412+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2021-07-15T13_13_14_138Z-debug.log
+2021-07-15T13:13:14.220647+00:00 heroku[web.1]: Process exited with status 1
+2021-07-15T13:13:14.287361+00:00 heroku[web.1]: State changed from up to crashed
+2021-07-15T13:13:14.320424+00:00 heroku[web.1]: State changed from crashed to starting
+2021-07-15T13:13:17.720756+00:00 heroku[web.1]: Starting process with command `npm start`
+2021-07-15T13:13:22.657441+00:00 app[web.1]: 
+2021-07-15T13:13:22.657496+00:00 app[web.1]: > clase_login@1.0.0 start /app
+2021-07-15T13:13:22.657497+00:00 app[web.1]: > node src/index.js
+2021-07-15T13:13:22.657498+00:00 app[web.1]: 
+2021-07-15T13:13:22.974218+00:00 app[web.1]: Warning: connect.session() MemoryStore is not
+2021-07-15T13:13:22.974239+00:00 app[web.1]: designed for a production environment, as it will leak
+2021-07-15T13:13:22.974239+00:00 app[web.1]: memory, and will not scale past a single process.
+2021-07-15T13:13:23.096715+00:00 app[web.1]: servidor en el puerto 39480
+2021-07-15T13:13:23.105080+00:00 app[web.1]: error when connecting to db: Error: connect ECONNREFUSED 127.0.0.1:3306
+2021-07-15T13:13:23.105082+00:00 app[web.1]: at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1148:16)
+2021-07-15T13:13:23.105083+00:00 app[web.1]: --------------------
+2021-07-15T13:13:23.105084+00:00 app[web.1]: at Protocol._enqueue (/app/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+2021-07-15T13:13:23.105084+00:00 app[web.1]: at Protocol.handshake (/app/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+2021-07-15T13:13:23.105084+00:00 app[web.1]: at PoolConnection.connect (/app/node_modules/mysql/lib/Connection.js:116:18)
+2021-07-15T13:13:23.105085+00:00 app[web.1]: at Pool.getConnection (/app/node_modules/mysql/lib/Pool.js:48:16)
+2021-07-15T13:13:23.105086+00:00 app[web.1]: at handleDisconnect (/app/src/config/db.js:16:16)
+2021-07-15T13:13:23.105086+00:00 app[web.1]: at Object.<anonymous> (/app/src/config/db.js:32:1)
+2021-07-15T13:13:23.105087+00:00 app[web.1]: at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2021-07-15T13:13:23.105087+00:00 app[web.1]: at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+2021-07-15T13:13:23.105087+00:00 app[web.1]: at Module.load (internal/modules/cjs/loader.js:950:32)
+2021-07-15T13:13:23.105088+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:790:14) {
+2021-07-15T13:13:23.105088+00:00 app[web.1]: errno: -111,
+2021-07-15T13:13:23.105089+00:00 app[web.1]: code: 'ECONNREFUSED',
+2021-07-15T13:13:23.105089+00:00 app[web.1]: syscall: 'connect',
+2021-07-15T13:13:23.105090+00:00 app[web.1]: address: '127.0.0.1',
+2021-07-15T13:13:23.105090+00:00 app[web.1]: port: 3306,
+2021-07-15T13:13:23.105090+00:00 app[web.1]: fatal: true
+2021-07-15T13:13:23.105091+00:00 app[web.1]: }
+2021-07-15T13:13:23.364021+00:00 heroku[web.1]: State changed from starting to up
+2021-07-15T13:13:25.109164+00:00 app[web.1]: /app/node_modules/mysql/lib/PoolConfig.js:10
+2021-07-15T13:13:25.109169+00:00 app[web.1]: this.acquireTimeout     = (options.acquireTimeout === undefined)
+2021-07-15T13:13:25.109170+00:00 app[web.1]: ^
+2021-07-15T13:13:25.109171+00:00 app[web.1]: 
+2021-07-15T13:13:25.109172+00:00 app[web.1]: TypeError: Cannot read property 'acquireTimeout' of undefined
+2021-07-15T13:13:25.109173+00:00 app[web.1]: at new PoolConfig (/app/node_modules/mysql/lib/PoolConfig.js:10:38)
+2021-07-15T13:13:25.109173+00:00 app[web.1]: at Object.createPool (/app/node_modules/mysql/index.js:26:28)
+2021-07-15T13:13:25.109174+00:00 app[web.1]: at Timeout.handleDisconnect [as _onTimeout] (/app/src/config/db.js:14:24)
+2021-07-15T13:13:25.109174+00:00 app[web.1]: at listOnTimeout (internal/timers.js:557:17)
+2021-07-15T13:13:25.109175+00:00 app[web.1]: at processTimers (internal/timers.js:500:7)
+2021-07-15T13:13:25.144336+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2021-07-15T13:13:25.145109+00:00 app[web.1]: npm ERR! errno 1
+2021-07-15T13:13:25.159402+00:00 app[web.1]: npm ERR! clase_login@1.0.0 start: `node src/index.js`
+2021-07-15T13:13:25.159782+00:00 app[web.1]: npm ERR! Exit status 1
+2021-07-15T13:13:25.160354+00:00 app[web.1]: npm ERR!
+2021-07-15T13:13:25.161078+00:00 app[web.1]: npm ERR! Failed at the clase_login@1.0.0 start script.
+2021-07-15T13:13:25.161219+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2021-07-15T13:13:25.185523+00:00 app[web.1]: 
+2021-07-15T13:13:25.185959+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2021-07-15T13:13:25.186291+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2021-07-15T13_13_25_162Z-debug.log
+2021-07-15T13:13:25.258194+00:00 heroku[web.1]: Process exited with status 1
+2021-07-15T13:13:25.379268+00:00 heroku[web.1]: State changed from up to crashed
+2021-07-15T13:13:55.358159+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=diego1286-cparts.herokuapp.com request_id=4ee1bbdf-1135-427f-a5f6-9aab665842e1 fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T13:13:55.993030+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=diego1286-cparts.herokuapp.com request_id=f9b56657-0fbe-4fd4-bae0-8aaa2272577e fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T13:33:12.313543+00:00 heroku[web.1]: State changed from crashed to starting
+2021-07-15T13:33:16.000684+00:00 heroku[web.1]: Starting process with command `npm start`
+2021-07-15T13:33:20.400599+00:00 app[web.1]: 
+2021-07-15T13:33:20.400619+00:00 app[web.1]: > clase_login@1.0.0 start /app
+2021-07-15T13:33:20.400619+00:00 app[web.1]: > node src/index.js
+2021-07-15T13:33:20.400619+00:00 app[web.1]: 
+2021-07-15T13:33:20.988704+00:00 app[web.1]: Warning: connect.session() MemoryStore is not
+2021-07-15T13:33:20.988749+00:00 app[web.1]: designed for a production environment, as it will leak
+2021-07-15T13:33:20.988750+00:00 app[web.1]: memory, and will not scale past a single process.
+2021-07-15T13:33:21.209880+00:00 app[web.1]: servidor en el puerto 23884
+2021-07-15T13:33:21.219414+00:00 app[web.1]: error when connecting to db: Error: connect ECONNREFUSED 127.0.0.1:3306
+2021-07-15T13:33:21.219415+00:00 app[web.1]: at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1148:16)
+2021-07-15T13:33:21.219416+00:00 app[web.1]: --------------------
+2021-07-15T13:33:21.219416+00:00 app[web.1]: at Protocol._enqueue (/app/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+2021-07-15T13:33:21.219417+00:00 app[web.1]: at Protocol.handshake (/app/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+2021-07-15T13:33:21.219417+00:00 app[web.1]: at PoolConnection.connect (/app/node_modules/mysql/lib/Connection.js:116:18)
+2021-07-15T13:33:21.219418+00:00 app[web.1]: at Pool.getConnection (/app/node_modules/mysql/lib/Pool.js:48:16)
+2021-07-15T13:33:21.219419+00:00 app[web.1]: at handleDisconnect (/app/src/config/db.js:16:16)
+2021-07-15T13:33:21.219419+00:00 app[web.1]: at Object.<anonymous> (/app/src/config/db.js:32:1)
+2021-07-15T13:33:21.219419+00:00 app[web.1]: at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2021-07-15T13:33:21.219420+00:00 app[web.1]: at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+2021-07-15T13:33:21.219420+00:00 app[web.1]: at Module.load (internal/modules/cjs/loader.js:950:32)
+2021-07-15T13:33:21.219420+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:790:14) {
+2021-07-15T13:33:21.219421+00:00 app[web.1]: errno: -111,
+2021-07-15T13:33:21.219421+00:00 app[web.1]: code: 'ECONNREFUSED',
+2021-07-15T13:33:21.219422+00:00 app[web.1]: syscall: 'connect',
+2021-07-15T13:33:21.219422+00:00 app[web.1]: address: '127.0.0.1',
+2021-07-15T13:33:21.219422+00:00 app[web.1]: port: 3306,
+2021-07-15T13:33:21.219423+00:00 app[web.1]: fatal: true
+2021-07-15T13:33:21.219423+00:00 app[web.1]: }
+2021-07-15T13:33:21.435418+00:00 heroku[web.1]: State changed from starting to up
+2021-07-15T13:33:23.225340+00:00 app[web.1]: /app/node_modules/mysql/lib/PoolConfig.js:10
+2021-07-15T13:33:23.225352+00:00 app[web.1]: this.acquireTimeout     = (options.acquireTimeout === undefined)
+2021-07-15T13:33:23.225352+00:00 app[web.1]: ^
+2021-07-15T13:33:23.225353+00:00 app[web.1]: 
+2021-07-15T13:33:23.225354+00:00 app[web.1]: TypeError: Cannot read property 'acquireTimeout' of undefined
+2021-07-15T13:33:23.225354+00:00 app[web.1]: at new PoolConfig (/app/node_modules/mysql/lib/PoolConfig.js:10:38)
+2021-07-15T13:33:23.225355+00:00 app[web.1]: at Object.createPool (/app/node_modules/mysql/index.js:26:28)
+2021-07-15T13:33:23.225355+00:00 app[web.1]: at Timeout.handleDisconnect [as _onTimeout] (/app/src/config/db.js:14:24)
+2021-07-15T13:33:23.225356+00:00 app[web.1]: at listOnTimeout (internal/timers.js:557:17)
+2021-07-15T13:33:23.225356+00:00 app[web.1]: at processTimers (internal/timers.js:500:7)
+2021-07-15T13:33:23.262701+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2021-07-15T13:33:23.263418+00:00 app[web.1]: npm ERR! errno 1
+2021-07-15T13:33:23.291040+00:00 app[web.1]: npm ERR! clase_login@1.0.0 start: `node src/index.js`
+2021-07-15T13:33:23.291443+00:00 app[web.1]: npm ERR! Exit status 1
+2021-07-15T13:33:23.291804+00:00 app[web.1]: npm ERR!
+2021-07-15T13:33:23.292289+00:00 app[web.1]: npm ERR! Failed at the clase_login@1.0.0 start script.
+2021-07-15T13:33:23.292562+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2021-07-15T13:33:23.316415+00:00 app[web.1]: 
+2021-07-15T13:33:23.316852+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2021-07-15T13:33:23.317077+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2021-07-15T13_33_23_295Z-debug.log
+2021-07-15T13:33:23.393936+00:00 heroku[web.1]: Process exited with status 1
+2021-07-15T13:33:23.471609+00:00 heroku[web.1]: State changed from up to crashed
+2021-07-15T13:35:57.192828+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=diego1286-cparts.herokuapp.com request_id=4f1fde64-d00c-4169-bbba-c43ae04bb6b2 fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T13:51:33.513297+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=diego1286-cparts.herokuapp.com request_id=fa135d98-cd02-4bfc-bd9c-506b25f427bd fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T13:53:26.802462+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=diego1286-cparts.herokuapp.com request_id=a4e38653-e708-46be-85d3-aef047b26bb1 fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T13:55:42.122140+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=diego1286-cparts.herokuapp.com request_id=714410d7-1f86-4fd9-b9f1-e61c7c1ed49e fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T14:03:32.733644+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=diego1286-cparts.herokuapp.com request_id=29560e0d-ae3e-4dc4-9d1a-bbc96733d2ea fwd="181.136.38.94" dyno= connect= service= status=503 bytes= protocol=https
+2021-07-15T14:06:27.343047+00:00 heroku[web.1]: State changed from crashed to starting
+2021-07-15T14:06:30.994590+00:00 heroku[web.1]: Starting process with command `npm start`
+2021-07-15T14:06:34.940569+00:00 app[web.1]: 
+2021-07-15T14:06:34.940596+00:00 app[web.1]: > clase_login@1.0.0 start /app
+2021-07-15T14:06:34.940596+00:00 app[web.1]: > node src/index.js
+2021-07-15T14:06:34.940597+00:00 app[web.1]: 
+2021-07-15T14:06:35.350284+00:00 app[web.1]: Warning: connect.session() MemoryStore is not
+2021-07-15T14:06:35.350312+00:00 app[web.1]: designed for a production environment, as it will leak
+2021-07-15T14:06:35.350312+00:00 app[web.1]: memory, and will not scale past a single process.
+2021-07-15T14:06:35.486284+00:00 app[web.1]: servidor en el puerto 25452
+2021-07-15T14:06:35.493786+00:00 app[web.1]: error when connecting to db: Error: connect ECONNREFUSED 127.0.0.1:3306
+2021-07-15T14:06:35.493787+00:00 app[web.1]: at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1148:16)
+2021-07-15T14:06:35.493788+00:00 app[web.1]: --------------------
+2021-07-15T14:06:35.493789+00:00 app[web.1]: at Protocol._enqueue (/app/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+2021-07-15T14:06:35.493790+00:00 app[web.1]: at Protocol.handshake (/app/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+2021-07-15T14:06:35.493790+00:00 app[web.1]: at PoolConnection.connect (/app/node_modules/mysql/lib/Connection.js:116:18)
+2021-07-15T14:06:35.493791+00:00 app[web.1]: at Pool.getConnection (/app/node_modules/mysql/lib/Pool.js:48:16)
+2021-07-15T14:06:35.493792+00:00 app[web.1]: at handleDisconnect (/app/src/config/db.js:16:16)
+2021-07-15T14:06:35.493792+00:00 app[web.1]: at Object.<anonymous> (/app/src/config/db.js:32:1)
+2021-07-15T14:06:35.493793+00:00 app[web.1]: at Module._compile (internal/modules/cjs/loader.js:1085:14)
+2021-07-15T14:06:35.493793+00:00 app[web.1]: at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+2021-07-15T14:06:35.493794+00:00 app[web.1]: at Module.load (internal/modules/cjs/loader.js:950:32)
+2021-07-15T14:06:35.493794+00:00 app[web.1]: at Function.Module._load (internal/modules/cjs/loader.js:790:14) {
+2021-07-15T14:06:35.493795+00:00 app[web.1]: errno: -111,
+2021-07-15T14:06:35.493795+00:00 app[web.1]: code: 'ECONNREFUSED',
+2021-07-15T14:06:35.493796+00:00 app[web.1]: syscall: 'connect',
+2021-07-15T14:06:35.493796+00:00 app[web.1]: address: '127.0.0.1',
+2021-07-15T14:06:35.493796+00:00 app[web.1]: port: 3306,
+2021-07-15T14:06:35.493797+00:00 app[web.1]: fatal: true
+2021-07-15T14:06:35.493797+00:00 app[web.1]: }
+2021-07-15T14:06:35.947288+00:00 heroku[web.1]: State changed from starting to up
+2021-07-15T14:06:37.615144+00:00 heroku[web.1]: Process exited with status 1
+2021-07-15T14:06:37.676760+00:00 heroku[web.1]: State changed from up to crashed
+2021-07-15T14:06:37.498156+00:00 app[web.1]: /app/node_modules/mysql/lib/PoolConfig.js:10
+2021-07-15T14:06:37.498168+00:00 app[web.1]: this.acquireTimeout     = (options.acquireTimeout === undefined)
+2021-07-15T14:06:37.498169+00:00 app[web.1]: ^
+2021-07-15T14:06:37.498170+00:00 app[web.1]: 
+2021-07-15T14:06:37.498170+00:00 app[web.1]: TypeError: Cannot read property 'acquireTimeout' of undefined
+2021-07-15T14:06:37.498171+00:00 app[web.1]: at new PoolConfig (/app/node_modules/mysql/lib/PoolConfig.js:10:38)
+2021-07-15T14:06:37.498171+00:00 app[web.1]: at Object.createPool (/app/node_modules/mysql/index.js:26:28)
+2021-07-15T14:06:37.498172+00:00 app[web.1]: at Timeout.handleDisconnect [as _onTimeout] (/app/src/config/db.js:14:24)
+2021-07-15T14:06:37.498172+00:00 app[web.1]: at listOnTimeout (internal/timers.js:557:17)
+2021-07-15T14:06:37.498173+00:00 app[web.1]: at processTimers (internal/timers.js:500:7)
+2021-07-15T14:06:37.517057+00:00 app[web.1]: npm ERR! code ELIFECYCLE
+2021-07-15T14:06:37.517727+00:00 app[web.1]: npm ERR! errno 1
+2021-07-15T14:06:37.528787+00:00 app[web.1]: npm ERR! clase_login@1.0.0 start: `node src/index.js`
+2021-07-15T14:06:37.529038+00:00 app[web.1]: npm ERR! Exit status 1
+2021-07-15T14:06:37.529343+00:00 app[web.1]: npm ERR!
+2021-07-15T14:06:37.529613+00:00 app[web.1]: npm ERR! Failed at the clase_login@1.0.0 start script.
+2021-07-15T14:06:37.529853+00:00 app[web.1]: npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+2021-07-15T14:06:37.537133+00:00 app[web.1]: 
+2021-07-15T14:06:37.537497+00:00 app[web.1]: npm ERR! A complete log of this run can be found in:
+2021-07-15T14:06:37.537732+00:00 app[web.1]: npm ERR!     /app/.npm/_logs/2021-07-15T14_06_37_531Z-debug.log
+
+
+
+mysql:// pass b2293530885293 : user c9c3396f @  host  us-cdbr-east-04.cleardb.com   reconect heroku_619f4895c186a5c ?reconnect=true
+mysql --u--host=us-cdbr-east-04.cleardb.com user=c9c3396f  --password=b2293530885293  --reconect heroku_619f4895c186a5c 
+
