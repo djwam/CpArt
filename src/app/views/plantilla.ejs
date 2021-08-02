@@ -1,142 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login de usuario</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="/resources/css/registro.css"/>
-  </head>
- 
-  <body><!---aca para hacer el formularo para agregar datos a la tabla ----->
-    <br>
-      <div class=" row container col-10 d-flex p-2 bd-highlight">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/landi_page">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Metodologia
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="d-flex">
-                <input class="form-control me-2" 
-                type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-              </form>
-            </div>
-        </nav>
-      
-        <div class=" row col-12 md-5 mt-4 card d-flex p-2 bd-highlight">
-          <h3 class="card-title">Agregue inventario</h3>
-           <form action="/plantilla" method="POST" class="card-body row align-items-center">
-             <div class="row col-12 form-group">
-               <div class="col">
-                <label class="font-weight-bold"
-                >Nombre Elemnto<span class="text-danger">*</span></label
-              >
-                <input type="text" name="nombreInventario" class="form-control" placeholder=" ">
-               </div>
-               <div class="col">
-                <label class="font-weight-bold"
-                >Tipo Elemnto<span class="text-danger">*</span></label
-              >
-                <input type="text" name="tipo" class="form-control" placeholder=" ">
-               </div>
-               <div class="col">
-                <label class="font-weight-bold"
-                >Cantidad Unidades<span class="text-danger">*</span></label
-              >
-                <input type="number" name="unidades" class="form-control" placeholder=" ">
-               </div>
-               <div class="col">
-                <label class="font-weight-bold"
-                > Valor Elemento<span class="text-danger">*</span></label
-              >
-                <input type="text" name="costo" class="form-control" placeholder=" ">
-               </div>
-             </div>
-             <div class="row col-12  form-group">
-              <div class="col">
-                <label class="font-weight-bold"
-                >Fecha Ingreso<span class="text-danger">*</span></label
-              >
-                <input type="date" name="fechaCaducidad" class="form-control" placeholder=" ">
-              </div>
-              <div class="col">
-                <label class="font-weight-bold"
-                >Descripcion<span class="text-danger">*</span></label
-              >
-                <input type="text" name="descripcion" class="form-control" placeholder=" ">
-              </div>
-              <div class="col">
-                <label class="font-weight-bold"
-                >Estado Elemento<span class="text-danger">*</span></label
-              >
-              <input type="text" name="estado" class="form-control" placeholder=" ">
-              </div>
-              <div class="col">
-                <label class="font-weight-bold"
-                >Fecha Ultimo inventario<span class="text-danger">*</span></label
-              >
-                <input type="date" name="fechaUltimoInventario" class="form-control" placeholder=" ">
-              </div>
-             </div>
-             <div class="row col-3 ">
-              <input type="submit" class="btn btn-success">
-             </div>
-           </form>
-        </div>
-          
-          
-            <div class=" row col-12 md-6 mt-4 text-center d-flex p-2 bd-highlight">
-              <table class="table table-striped table-responsive"> 
-                <tr>
-                  <th>ID</th>
-                  <th>nombre_I</th>
-                  <th>tipo</th>
-                  <th>unidades</th>
-                  <th>costo</th>
-                  <th>Ingreso</th>
-                  <th>Descripcion</th>
-                  <th>Estado</th>
-                  <th>Ultimo_inventario</th>
-                  <th>Eliminar</th>
-                  <th>Editar</th>
-                </tr>
-              <% for (let i=0;i<inventario.length; i++){%>
-               <tr>
-                 <td><%=inventario[i].idinventario%></td>
-                 <td><%=inventario[i].nombreInventario%></td>
-                 <td><%=inventario[i].tipo%></td>
-                 <td><%=inventario[i].unidades%></td>
-                 <td><%=inventario[i].costo%></td>
-                 <td><%=inventario[i].fechaCaducidad%></td>
-                 <td><%=inventario[i].descripcion%></td>
-                 <td><%=inventario[i].estado%></td>
-                 <td><%=inventario[i].fechaUltimoInventario%></td>
-                 <td><a href="/delete/<%=inventario[i].idinventario%>">Eliminar</a></td>
-                <td><type type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Editar</type>
-               </tr>
-               <%}%>
-             </table>
-            </div>
-      </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!----se configura el usuario de registo--->
+		<title>registo</title>
+		<link rel="stylesheet" href="/resources/css/registro.css" />
+                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="row g-1 container">
+				<div class="col">
+					<div class="rounded">
+						<img class="logo" src="/resources/img/2.png" alt="" /><br />
+					</div>
+				</div>
+				<div class="col">
+					<h6 class="card-title">
+						<nav class="navbar navbar-expand-lg navbar-light bg-light">
+							<a class="navbar-brand" href="/landi_page">Inicio</a>
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+							  <span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarScroll">
+							  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+							    <li class="nav-item dropdown">
+							      <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Metodologia
+							      </a>
+							      <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Something else here</a></li>
+							      </ul>
+							    </li>
+							  </ul>
+							  <form class="d-flex">
+							    <input class="form-control me-2" 
+							    type="search" placeholder="Buscar" aria-label="Search">
+							    <button class="btn btn-outline-success" type="submit">Buscar</button>
+							  </form>
+							</div>
+						</nav>
+					</h6>
+				</div>
+				<h5 class="card-title">Formulario para ingresar elementos al inventario</h5>
+				<form action="/plantilla" method="POST" class="card-body row align-items-center" >
+					
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Nombre Elemento<span class="text-danger">*</span></label>
+						<input
+							type="text" id="nombreInventario" name="nombreInventario"class="form-control"placeholder=""/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Tipo Elemnto<span class="text-danger">*</span></label>
+						<input
+							type="text"
+							id="tipo"
+							name="tipo"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold" for="rol"
+							>Cantidad<span class="text-danger">*</span></label
+						>
+						<input
+							type="number"
+							id="unidades"
+							name="unidades"
+							class="form-control"
+							placeholder=" "
+						/>
+						
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Costo Elemento<span class="text-danger">*</span></label
+						>
+						<input
+							type="number"
+							name="costo"
+							id="costo"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Fecha Ingreso<span class="text-danger">*</span></label
+						>
+						<input
+							type="date"
+							name="fechaCaducidad "
+							id="fechaCaducidad "
+							class="form-control"
+							placeholder=" "
+						/>
+						
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Descripcion<span class="text-danger">*</span></label
+						>
+						<input
+							name="descripcion"
+							id="descripcion"
+							type="text"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Estado<span class="text-danger">*</span></label
+						>
+						<select
+							name="estado"
+							id="estado"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option selected></option>
+							<option value="nuevo">Nuevo</option>
+							<option value="regular">Malo</option>
+							<option value="obsoleto">obsoleto</option>
+						</select>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Fecha Regreso<span class="text-danger">*</span></label
+						>
+						<input
+							name="fechaUltimoInventario"
+							id=" fechaUltimoInventario"
+							type="date"
+							class="form-control"
+							placeholder=" "
+						/>
+						
+					</div>
+					<div style="display: inline">
+						<input type="submit" class="btn btn-primary" value="enviar" />
+						<a href="/plantilla" class="btn btn-danger">Cancelar</a>
+					</div>
+				</form>
+				
+				<table class="table table-striped table-responsive"> 
+					<tr>
+					  <th>ID</th>
+					  <th>Articulos</th>
+					  <th>tipo</th>
+					  <th>unidades</th>
+					  <th>costo</th>
+					  <th>Ingreso</th>
+					  <th>Descripcion</th>
+					  <th>Estado</th>
+					  <th>Ultimo Inventario</th>
+					  <th>Eliminar</th>
+					  <th>Editar</th>
+					</tr>
+					<%for(let i=0;i<invent.length; i++){%>
+					    <tr>
+					      <td><%=invent[i].idinventario%></td>
+					      <td><%=invent[i].nombreInventario%></td>
+					      <td><%=invent[i].tipo%></td>
+					      <td><%=invent[i].unidades%></td>
+					      <td><%=invent[i].costo%></td>
+					      <td><%=invent[i].fechaCaducidad%></td>
+					      <td><%=invent[i].descripcion%></td>
+					      <td><%=invent[i].estado%></td>
+					      <td><%=invent[i].fechaUltimoInventario%></td>
+					      <td><a href="/delete/<%=invent[i].idinventario%>">Eliminar</a></td>
+					      <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Editar</button></td>
+					      </tr>
+					      <div class="modal fade" id="exampleModal<%=invent[i].idinventario%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+						  <div class="modal-content">
+						    <div class="modal-header">
+						      <h5 class="modal-title" id="exampleModalLabel">Editar Elemento</h5>
+						      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						    </div>
+						    <div class="modal-body">
+						      <form method="POST" action="/edit/<%=invent[i].idinventario%>">
+							<div class="mb-3">
+							  <label class="font-weight-bold"
+							  >Tipo Elemnto<span class="text-danger">*</span></label
+							>
+							  <input type="text" name="tipo" id="message-text" class="form-control" placeholder=" ">
+							 </div>
+							 <div class="mb-3">
+							  <label class="font-weight-bold"
+							  >Cantidad Unidades<span class="text-danger">*</span></label
+							>
+							  <input type="number" name="unidades" id="message-text" class="form-control" placeholder=" ">
+							 </div>
+							 <div class="mb-3">
+							  <label class="font-weight-bold"
+							  > Valor Elemento<span class="text-danger">*</span></label
+							>
+							  <input type="text" name="costo" id="message-text" class="form-control" placeholder=" ">
+							 </div>
+							 <div class="mb-3">
+							  <label class="font-weight-bold"
+							  >Descripcion<span class="text-danger">*</span></label
+							>
+							  <input type="text" name="descripcion" class="form-control" placeholder=" ">
+							</div>
+							<div class="mb-3">
+							  <label class="font-weight-bold"
+							  >Estado Elemnto<span class="text-danger">*</span></label
+							>
+							<input type="text" name="estado" id="message-text" class="form-control" placeholder=" ">
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							  <input type="submit" class="btn btn-primary" value="Enviar">
+							</div>
+						      </form>
+						    </div>
+						  </div>
+						</div>
+					      </div>
+					<%}%>
+				</table>
+			</div>
+			
+		</div>
+	</body>
 </html>

@@ -4,146 +4,152 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Login de usuario</title>
+		<!----se configura el usuario de registo--->
+		<title>registo</title>
+		<link rel="stylesheet" href="/resources/css/registro.css" />
+
 		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		/>
-		<link rel="stylesheet" href="/resources/css/Registro.css" />
 	</head>
-	<!-- acase configura el login para iniciar al sistema
- -->
-
+	
 	<body>
-		<div class="container-fluid">
-			<!-- desde aca empieza el primer container
-                de tarjetas las tres tarjetas para cada una en container col -->
-			<br />
-			<div class="row align-items-start">
-				<!-- barra de la navegacion-->
-				<div class="col-4">
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<div class="container-fluid">
-							<a class="navbar-brand" href="/landi_page">Inicio</a>
-							<button
-								class="navbar-toggler"
-								type="button"
-								data-bs-toggle="collapse"
-								data-bs-target="#navbarScroll"
-								aria-controls="navbarScroll"
-								aria-expanded="false"
-								aria-label="Toggle navigation"
-							>
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse" id="navbarScroll">
-								<form class="d-flex">
-									<input
-										class="form-control me-2"
-										type="search"
-										placeholder="Buscar"
-										aria-label="Search"
-									/>
-									<button class="btn btn-outline-success" type="submit">Buscar</button>
-								</form>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-			<br />
-
-			<div class="col-12">
-				<div class="card mx-4 my-3">
-					<div class="card-body border border-5">
-						<h4 class="card-title">Metodologia</h4>
-						<a href="/registrous" class="btn btn-primary">Crear Usuario</a>
-						<div class="row border border-5 mx-4 my-3">
-							<div class="col-3 mx-1 my-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Nombre de la actividad"
-									aria-label="First name"
-								/>
-							</div>
-							<div class="col-3 mx-1 my-3">
-								<input
-									type="date"
-									class="form-control"
-									placeholder="Fecha Inicial"
-									aria-label="Fecha"
-								/>
-							</div>
-							<div class="col-3 mx-1 my-3">
-								<input
-									type="date"
-									class="form-control"
-									placeholder="Fecha Final"
-									aria-label="Fecha"
-								/>
-							</div>
-							<div class="col-2 mx-1 my-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Participantes"
-									aria-label="First name"
-								/>
-							</div>
-							<br />
-							<div class="col-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Metodologia"
-									aria-label="First name"
-								/>
-							</div>
-							<br />
-							<div class="col-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Costo Total"
-									aria-label="First name"
-								/>
-							</div>
-							<div class="col-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Lider"
-									aria-label="First name"
-								/>
-							</div>
-							<div class="col-3">
-								<input
-									type="text"
-									class="form-control"
-									placeholder="Costo Metodologia"
-									aria-label="First name"
-								/>
-							</div>
-							<div class="col-1 mx-1 my-4">
-								<div class="form-group">
-									<a href="/registrous" class="btn btn-success">Guardar</a>
-								</div>
-							</div>
-							<div class="col-1 mx-1 my-4">
-								<div class="form-group">
-									<a href="/tabla" class="btn btn-success">Usuarios</a>
-								</div>
-							</div>
-							<div class="col-1 mx-1 my-4">
-								<div class="form-group">
-									<a href="/plantilla" class="btn btn-success">Inventario</a>
-								</div>
-							</div>
-						</div>
+		<div class="container">
+			<div class="row g-1 container">
+				<div class="col">
+					<div class="rounded">
+						<img class="logo" src="/resources/img/2.png" alt="" /><br />
 					</div>
 				</div>
+				<div class="col">
+					<h6 class="card-title">
+						<nav class="navbar navbar-expand-lg navbar-light bg-light">
+							<a class="navbar-brand" href="/landi_page">Inicio</a>
+							<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+							  <span class="navbar-toggler-icon"></span>
+							</button>
+							<div class="collapse navbar-collapse" id="navbarScroll">
+							  <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+							    <li class="nav-item dropdown">
+							      <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Metodologia
+							      </a>
+							      <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">Something else here</a></li>
+							      </ul>
+							    </li>
+							  </ul>
+							  <form class="d-flex">
+							    <input class="form-control me-2" 
+							    type="search" placeholder="Buscar" aria-label="Search">
+							    <button class="btn btn-outline-success" type="submit">Buscar</button>
+							  </form>
+							</div>
+						</nav>
+					</h6>
+				</div>
+				<div style="display: inline">
+					<a href="/registrous" class="btn btn-outline-success">Registrar <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+						<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+						<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+					</svg></a>
+					<a href="/plantilla" class="btn btn-outline-success"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+						<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+						<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+					      </svg>Inventario</a>
+				</div>
+				<h6 class="card-title">Formulario para ingresar actividaddes de la metodologia</h6>
+				<form class="row" action="regismetodologia" method="POST">
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Metodologia<span class="text-danger">*</span></label
+						>
+						<select
+							name="dependencia"
+							id="dependencia"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option selected></option>
+							<option value="semillas">Semillas del futuro</option>
+							<option value="union">Union entre comunas</option>
+							<option value="cuerpos">Cuerpos gramaticales</option>
+							<option value="plantas">Plantas de memoria</option>
+							<option value="partido">Partido de las doñas</option>
+						</select>
+						
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Fecha Actividad<span class="text-danger">*</span></label
+						>
+						<input
+							type="date"
+							id="fechaInicial"
+							name="fechaInicial"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold" for="rol"
+							>Numero Participantes<span class="text-danger">*</span></label
+						>
+						<input
+							type="number"
+							id="numeroParticipantes"
+							name="numeroParticipantes"
+							class="form-control"
+							placeholder=" "
+						/>
+						
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Actividades Realizadas<span class="text-danger">*</span></label
+						>
+						<input
+							type="text"
+							name="actividades"
+							id="actividades"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Costo Materiales<span class="text-danger">*</span></label
+						>
+						<input
+							type="number"
+							name="costoMetodologia"
+							id="costoMetodologia"
+							class="form-control"
+							placeholder=" "
+						/>
+						
+					</div>
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Costo Total<span class="text-danger">*</span></label
+						>
+						<input
+							name="costoTotal "
+							id="costoTotal "
+							type="number"
+							class="form-control"
+							placeholder=" "
+						/>
+					</div>
+					<div style="display: inline">
+						<input type="submit" class="btn btn-primary" value="enviar" />
+						<a href="/plantilla" class="btn btn-danger">Cancelar</a>
+					</div>
+				</form>
 			</div>
 		</div>
-	</body>
 </html>

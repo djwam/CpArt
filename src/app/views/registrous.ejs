@@ -6,15 +6,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!----se configura el usuario de registo--->
 		<title>registo</title>
-		<link rel="stylesheet" href="/resources/css/Registro.css" />
+		<link rel="stylesheet" href="/resources/css/registro.css" />
 
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 		/>
 	</head>
-	<!---esta es la vista del lider el cual no podra crear a otro lider ya 
-					que este es  exclusivo para el administrador de la aplicacion-->
+	
 	<body>
 		<div class="container">
 			<div class="row g-2 container">
@@ -135,18 +134,6 @@
 					</div>
 					<div class="col-4">
 						<label class="font-weight-bold"
-							>Email<span class="text-danger">*</span></label
-						>
-						<input
-							name="email"
-							id="email"
-							type="email"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
 							>Telefono<span class="text-danger">*</span></label
 						>
 						<input
@@ -182,8 +169,9 @@
 							aria-label="Default select example"
 						>
 							<option selected></option>
-							<option value="userMetodologia">Usuario Metogologia</option>
-							<option value="userExterno">Usuario Externo</option>
+							<option value="lidermetodologia">Lider Metodologia</option>
+							<option value="usermeetodologia">Usuario Metogologia</option>
+							<option value="userexterno">Usuario Externo</option>
 						</select>
 					</div>
 					<div class="col-4">
@@ -203,8 +191,20 @@
 							<option value="plantas">Plantas de memoria</option>
 							<option value="partido">Partido de las doñas</option>
 						</select>
+					</div>					
+					<div class="col-4">
+						<label class="font-weight-bold"
+							>Email<span class="text-danger">*</span></label
+						>
+						<input
+							name="email"
+							id="email"
+							type="email"
+							class="form-control"
+							placeholder=" "
+						/>
 					</div>
-					<div class="col-8">
+					<div class="col-12">
 						<label class="font-weight-bold"
 							>Informacion Adicional<span class="text-danger">*</span></label
 						>
@@ -218,82 +218,46 @@
 					</div>
 					<div style="display: inline">
 						<input type="submit" class="btn btn-primary" value="enviar" />
-						<a href="/landi_page" class="btn btn-danger">Cancelar</a>
-					</div>
-				</form>
-			</div>
-			<br />
-
-			<div class="row g-2 container">
-				<h5 class="card-title">Crear Perfil</h5>
-				<form class="row" action="registrous" method="POST">
-					<div class="col-6">
-						<label class="font-weight-bold" for="user"
-							>Usuario<span class="text-danger">*</span></label
-						>
-						<input
-							name="user"
-							id="user"
-							type="text"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-6">
-						<label class="font-weight-bold"
-							>Nombres<span class="text-danger">*</span></label
-						>
-						<input
-							type="text"
-							name="name"
-							id="name"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-6">
-						<label class="font-weight-bold"
-							>Rol<span class="text-danger">*</span></label
-						>
-						<select name="rol" type="text" id="rol" class="form-select">
-							<option selected></option>
-							<option value="1ider">Lider Metodologia</option>
-							<option value="userMetodologia">Usuario Metogologia</option>
-							<option value="userExterno">Usuario Externo</option>
-						</select>
-					</div>
-					<div class="col-6">
-						<label class="font-weight-bold"
-							>Contraseña<span class="text-danger">*</span></label
-						>
-						<input
-							name="pass"
-							id="pass"
-							type="password"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div style="display: inline">
-						<a href="/landi_page" class="btn btn-danger">Cancelar</a
-						><input type="submit" class="btn btn-primary" value="Guardar" />
+						<a href="/metodologia" class="btn btn-danger">Cancelar</a>
 					</div>
 				</form>
 			</div>
 		</div>
-		<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
 		<% if(typeof alert != "undefined"){%>
-		<script>
-			Swal.fire({
-				tite: "<%=alertTitle%>",
-				text: "<%=alertMessage%>",
-				icon: "<%=alertIcon%>",
-				showConfirmButton: "<%=showConfirmButton%>",
-				timer: "<%=timer%>",
-			}).then(() => {
-				window.location = "/registrous.ejs <%=ruta%>";
-			});
-		</script>
-		<%}%>
+			<script>
+				Swal.fire({
+					tite: "<%=alertTitle%>",
+					text: "<%=alertMessage%>",
+					icon: "<%=alertIcon%>",
+					showConfirmButton: "<%=showConfirmButton%>",
+					timer: "<%=timer%>",
+				}).then(() => {
+					window.location = "/registrous.ejs <%=ruta%>";
+				});
+			</script>
+			<%}%>	
 	</body>
 </html>
+<!--
+	idusuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombres VARCHAR(30) NOT NULL,
+apellidos VARCHAR(30) NOT NULL,
+documento VARCHAR(30) NOT NULL,
+identificacion VARCHAR(30) NOT NULL,
+genero VARCHAR(10) NOT NULL,
+fechavinculacion DATE NOT NULL,
+remuneracion VARCHAR(25) NULL DEFAULT NULL,
+estadoperfil VARCHAR(25) NULL DEFAULT NULL,
+telefono VARCHAR(20) NOT NULL,
+direccion VARCHAR(20) NOT NULL,
+tipousuario VARCHAR(30) NOT NULL,
+dependencia VARCHAR(30) NOT NULL,
+comentario VARCHAR(500) NOT NULL,
+password VARCHAR(300) NOT NULL,
+email varchar(40) not null,
+
+
+
+-->
+

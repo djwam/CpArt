@@ -4,23 +4,23 @@ const mysql = require('mysql');
 // funciona porque el servidor esta conectado anteriormente 
 // y ligado a la carpeta /env/.env
 const conexion_bd = {
-    host: 'us-cdbr-east-04.cleardb.com',
-    user: 'b9ef20f96de9ea',
-    password: 'fffcfbcf',
-    database: 'heroku_164eb56798637f1'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_DATABASE
 
 };
 function handleDisconnect(conexion_bd) {
-    connection = mysql.createPool(conexion_bd)
+    connec = mysql.createPool(conexion_bd)
 
-    connection.getConnection(function (err) {
+    connec.getConnection(function (err) {
         if (err) {
             console.log("error en la base de datos :", err);
             setTimeout(handleDisconnect, 2000);
         }
     });
-    connection.on("error", function (err) {
-        console.log('db error', err);
+    connec.on("error", function (err) {
+        console.log('Error en la BD aca', err);
         if (err.code === "PROTOCOL_CONNECTION_LOST") {
             handleDisconnect();
         } else {
