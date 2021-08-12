@@ -3,7 +3,8 @@ const { createConnection } = require('mysql');
 const app = require('../../config/server');
 const bcryptjs = require('bcryptjs')
 const connection = require('../../config/db');
-const moment = require('moment')
+const moment = require('moment');
+const excel = require('exceljs')
 
 module.exports = app => {
     // Metodos get para renderizar vistas y demas 
