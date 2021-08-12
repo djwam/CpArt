@@ -3,6 +3,7 @@ const { createConnection } = require('mysql');
 const app = require('../../config/server');
 const bcryptjs = require('bcryptjs')
 const connection = require('../../config/db');
+const moment = require('moment')
 
 module.exports = app => {
     // Metodos get para renderizar vistas y demas 
@@ -13,20 +14,21 @@ module.exports = app => {
             if (req.session.rol === 'admin') {
                 res.redirect('/landi_page');
                 console.log(req.session.rol === 'admin')
-            } else if (req.session.rol = 'lider') {
-                res.render('../views/landi_lider.ejs');
+            } else if (req.session.rol === 'lider') {
+                res.redirect('/landi_lider');
+                console.log(req.session.rol === 'lider')
             }
         }
         else {
             console.log("entrando a si no ")
             res.redirect('/login');
         }
-
     });
     app.get('/login', (req, res) => {
         res.render('../views/index.ejs', {
             login: true,
-            name: req.session.name
+            name: req.session.name,
+            idperfil: req.session.idperfil
         });
     });
     app.get('/logout', (req, res) => {
@@ -57,7 +59,9 @@ module.exports = app => {
                     });
                 } else {
                     req.session.loggedin = true;
-                    req.session.name = results[0].user;// sesiones de usuario para saber si esta logueado
+                    req.session.name = results[0].user;
+                    req.session.idperfil = results[0].idperfil;
+                    console.log(results[0].idperfil)               // sesiones de usuario para saber si esta logueado
                     if (rol === 'admin') {
                         req.session.rol = 'admin'
                         res.render('../views/landi_page.ejs', {
@@ -69,10 +73,10 @@ module.exports = app => {
                             timer: false,
                             ruta: 'landi_page',
                             name: req.session.name,
-                            login: true
+                            login: true,
+                            idperfil: req.session.idperfil
                         });
                         res.end()
-
                     } if (rol === 'lider') {
                         req.session.rol = 'lider';
                         res.render('../views/landi_lider.ejs', {
@@ -84,9 +88,8 @@ module.exports = app => {
                             timer: false,
                             ruta: 'landi_lider',
                             name: req.session.name,
-                            login: true
-                            //verificar estas rutas por que no se esta 
-                            // redirecccionando al sitio que es cuando se loguea
+                            login: true,
+                            idperfil: req.session.idperfil
                         });
                         res.end();
                     }
@@ -100,41 +103,88 @@ module.exports = app => {
         console.log(req.session);
         res.render('../views/landi_page.ejs', {
             login: req.session.loggedin,
-            name: req.session.name
+            name: req.session.name,
+            idperfil: req.session.idperfil
+        });
+    });
+    app.get('/landi_lider', (req, res) => {
+        console.log(req.session);
+        res.render('../views/landi_lider.ejs', {
+            login: req.session.loggedin,
+            name: req.session.name,
+            idperfil: req.session.idperfil
         });
     });
     app.get('/metodologia', (req, res) => {
-        res.render('../views/metodologia.ejs');
-    });
-    app.get('/landi_lider', (req, res) => {
-        res.render('../views/landi_lider.ejs');
-    });
-
-
-    // se confugura la ruta para la vista de registro del perfil 98765 
-    app.get('/register', (req, res) => {
-        res.render('../views/register.ejs');
-    });
-
-    app.get('/plan', (req, res) => {
-        res.render('../views/tabla.ejs');
+        connec.query("SELECT * FROM metodologia", (err, result) => {
+            res.render('../views/metodologia.ejs', {
+                m: moment,
+                meet: result,
+                login: req.session.loggedin,
+                name: req.session.name,
+                idperfil: req.session.idperfil
+            });
+        });
     });
 
-    app.get('/tabla', (req, res) => {
-        res.render('../views/tabla.ejs');
+    app.post('/metodologia', (req, res) => {
+        const { nombreMetodologia, fechaInicial, fechaFinal, numeroParticipantes,
+            actividades, costoTotal, fk_metodologia } = req.body;
+        connec.query("INSERT INTO metodologia SET?", {
+            nombreMetodologia: nombreMetodologia,
+            fechaInicial: fechaInicial,
+            fechaFinal: fechaFinal,
+            numeroParticipantes: numeroParticipantes,
+            actividades: actividades,
+            costoTotal: costoTotal,
+            fk_metodologia: fk_metodologia
+        }, (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect("/metodologia")
+            }
+        })
     });
+    app.get('/deleted/:idmetodologia', (req, res) => {
+        const idmetodologia = req.params.idmetodologia;
+        connec.query("DELETE FROM metodologia WHERE idmetodologia=?", [idmetodologia], (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect("/metodologia")
+            }
+        })
+    })
+    app.post('/edi/:idmetodologia', (req, res) => {
+        const idmetodologia = req.params.idmetodologia;
+        const { fechaFinal, numeroParticipantes, actividades, costoTotal } = req.body;
+        connec.query("UPDATE metodologia SET fechaFinal=?, numeroParticipantes=?, actividades=?, costoTotal=?  WHERE idmetodologia=?",
+            [fechaFinal, numeroParticipantes, actividades, costoTotal, idmetodologia], (err, result) => {
+                if (err) {
+                    res.send(err)
+                } else {
+                    res.redirect("/metodologia")
+                }
+            })
+    })
+
     //Conexion a los query en las BD para agregar registros al inventarios
     app.get('/plantilla', (req, res) => {
         connec.query("SELECT * FROM inventario", (err, result) => {
             res.render('../views/plantilla.ejs', {
-                invent: result
+                m: moment,
+                invent: result,
+                login: req.session.loggedin,
+                name: req.session.name,
+                idperfil: req.session.idperfil
             });
         });
     });
     /*Metodoo post para agregar datos a labase de datos al inventario */
     app.post('/plantilla', (req, res) => {
         const { nombreInventario, tipo, unidades, costo, fechaCaducidad,
-            descripcion, estado, fechaUltimoInventario } = req.body;
+            descripcion, estado, fechaUltimoInventario, fk_inventario } = req.body;
         connec.query("INSERT INTO inventario SET ?", {
             nombreInventario: nombreInventario,
             tipo: tipo,
@@ -143,7 +193,8 @@ module.exports = app => {
             fechaCaducidad: fechaCaducidad,
             descripcion: descripcion,
             estado: estado,
-            fechaUltimoInventario: fechaUltimoInventario
+            fechaUltimoInventario: fechaUltimoInventario,
+            fk_inventario: fk_inventario
         }, (err, result) => {
             if (err) {
                 res.send(err);
@@ -152,46 +203,86 @@ module.exports = app => {
             }
         })
     });
+    //borrar elementos de la tabla inventario
+    app.get('/delet/:idinventario', (req, res) => {
+        const idinventario = req.params.idinventario;
+        connec.query("DELETE FROM inventario WHERE idinventario=?", [idinventario], (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect("/plantilla")
+            }
+        })
+    })
+    // Editar el inventario 
+    app.post('/edit/:idinventario', (req, res) => {
+        const idinventario = req.params.idinventario;
+        const { tipo, unidades, costo, estado, descripcion } = req.body;
+        connec.query("UPDATE inventario SET tipo=?, unidades=?, costo=?, estado=?,descripcion=? WHERE idinventario=?",
+            [tipo, unidades, costo, estado, descripcion, idinventario], (err, result) => {
+                if (err) {
+                    res.send(err)
+                } else {
+                    res.redirect("/plantilla")
+
+                }
+            })
+    })
 
 
     // solicitud metodo get para renderizar 
     // la vista de registro del perfil
-    app.get('/registrous', (req, res) => {
-        res.render('../views/registrous.ejs');
+    app.get('/regisperfil', (req, res) => {
+        res.render('../views/register.ejs', {
+            login: req.session.loggedin,
+            name: req.session.name,
+            idperfil: req.session.idperfil
+        });
     });
-    // solicitud post para registrar perfil en la tabla registrous
-    app.post('/registrous', async (req, res) => {
-        const { user, name, rol, pass } = req.body;
+    // solicitud post para registrar perfil en la tabla perfil
+    app.post('/regisperfil', async (req, res) => {
+        const { user, rol, password } = req.body;
         console.log(req.body);
-        let passwordHaash = await bcryptjs.hash(pass, 8);
-        connection.query("INSERT INTO perfil SET?", {
+        let passwordHaash = await bcryptjs.hash(password, 8);
+        connec.query("INSERT INTO perfil SET?", {
             user: user,
-            name: name,
             rol: rol,
-            pass: passwordHaash
+            password: passwordHaash
         }, async (error, results) => {
             if (error) {
                 console.log(error);
             } else {
                 res.render('../views/register.ejs', {
+                    login: req.session.loggedin,
+                    name: req.session.name,
+                    idperfil: req.session.idperfil,
                     alert: true,
                     aleerTitle: "Registro Exitoso",
                     alertMessage: "success",
                     showConfirmButton: false,
-                    timer: false,
+                    timer: 2000,
                     ruta: ''
                 });
             }
         })
     });
-    /* solicitud metodo get para registrar un usuario en la bd*/
-    app.get('/regis', (req, res) => {
-        res.render('../views/registrous.ejs');
+    /* solicitud metodo get para mostrar  un usuario de la bd*/
+    app.get('/registrous', (req, res) => {
+        connec.query("SELECT * FROM usuario", (err, result) => {
+            res.render('../views/registrous.ejs', {
+                m: moment,
+                use: result,
+                login: req.session.loggedin,
+                name: req.session.name,
+                idperfil: req.session.idperfil
+            });
+        });
     });
-    app.post('/regis', async (req, res) => {
+    // solicitud para insertar usuarios a la bd desde la vista principal
+    app.post('/registrous', (req, res) => {
         const { nombres, apellidos, documento, identificacion,
             genero, fechavinculacion, remuneracion, estadoperfil, telefono, direccion, tipousuario,
-            dependencia, email, comentario } = req.body;
+            dependencia, email, comentario, id_usuario } = req.body;
         console.log(req.body);
         connec.query("INSERT INTO usuario SET?", {
             nombres: nombres,
@@ -207,49 +298,58 @@ module.exports = app => {
             tipousuario: tipousuario,
             dependencia: dependencia,
             email: email,
-            comentario: comentario
+            comentario: comentario,
+            id_usuario: id_usuario
         }, async (error, results) => {
             if (error) {
                 console.log(error);
             } else {
                 res.render('../views/registrous.ejs', {
+                    use: results,
+                    login: req.session.loggedin,
+                    name: req.session.name,
+                    idperfil: req.session.idperfil,
                     alert: true,
-                    aleerTitle: "Registro Exitoso",
+                    alertTitle: "Registro Exitoso",
                     alertMessage: "success",
+                    alertIcon: "success",
                     showConfirmButton: false,
-                    timer: false,
+                    timer: 2000,
                     ruta: ''
                 });
             }
         })
     });
-
-    app.get('/delete/:idinventario', (req, res) => {
-        const idinventario = req.params.idinventario;
-        connection.query("DELETE FROM inventario WHERE idinventario=?", [idinventario], (err, result) => {
+    // metodo para borrar de la base de datos un usuario de la base de datos 
+    app.get('/de/:idusuario', (req, res) => {
+        const idusuario = req.params.idusuario;
+        connec.query("DELETE FROM usuario WHERE idusuario=?", [idusuario], (err, result) => {
             if (err) {
                 res.send(err);
             } else {
-                res.redirect("/plantilla")
+                res.redirect("/registrous")
             }
         })
-    })
+    });
+    app.post('/edite/:idusuario', (req, res) => {
+        const idusuario = req.params.idusuario;
+        const { nombres, apellidos, documento, identificacion, genero,
+            fechavinculacion, remuneracion, estadoperfil, telefono, direccion, tipousuario, dependencia,
+            email, comentario } = req.body;
+        connec.query("UPDATE usuario SET nombres=?, apellidos=?, documento=?, identificacion=?, genero=?, fechavinculacion=?, remuneracion=?, estadoperfil=?, telefono=?, direccion=?, tipousuario=?, dependencia=?, email=?, comentario=? WHERE idusuario=?",
+            [nombres, apellidos, documento, identificacion, genero,
+                fechavinculacion, remuneracion, estadoperfil, telefono, direccion, tipousuario, dependencia,
+                email, comentario, idusuario], (err, result) => {
+                    if (err) {
+                        res.send(err)
+                    } else {
+                        res.redirect("/registrous")
+                    }
+                })
+    });
 
-
-    app.post('/edit/:idinventario', (req, res) => {
-        const idinventario = req.params.id;
-        const { tipo, unidades, costo, descripcion, estado } = req.body;
-        connection.query("UPDATE inventario SET tipo=?, unidades=?, costo=?, descripcion=?, estado=? WHERE idinventario",
-            [tipo, unidades, costo, descripcion, estado], (err, result) => {
-                if (err) {
-                    res.send(err)
-                } else {
-                    res.redirect("/plantilla")
-                }
-            })
-    })
 }
 
-//mysql://b2293530885293:c9c3396f@us-cdbr-east-04.cleardb.com/heroku_619f4895c186a5c?reconnect=true
+
 
 

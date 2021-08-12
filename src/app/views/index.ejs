@@ -25,31 +25,33 @@
 				</div>
 				<div class="col">
 					<h6 class="card-title">
-                        <h4 class="card-title">Nuestra mayor venganza sera juntarnos</h4>	
+                        <h4 class="card-title fst-italic">"Nuestra mayor venganza será juntarnos."</h4>	
 					</h6>
-                    <form action="/auth" method="POST">
-                        <div class="form-group mb-3 col-sm-6">
-                            <label class="form-floating mb-3">Usuario<class
-                                    class="text-danger">*</class></label>
-                            <input type="text" class="form-control" name="user"
-                                placeholder=" " required>
-                        </div>
-                        <div class="form-group ">
-                            <label class="form-group mb-3 col-sm-6">Rol<span
-                                    class="text-danger">*</span>
-                                        <select name="rol" id="rol" class="form-select" aria-label="rol" required>
-                                            <option selected></option>
-                                            <option value="admin">Admin</option>
-                                            <option value="lider">Lider</option>
-                                        </select>
-                            </label>
-                        </div>
-                        <div class="form-group mb-3 col-sm-6">
-                            <label class="font-weight-bold">Contraseña <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control" name="password" placeholder=" " required>
-                        </div>
-                        <input type="submit" class="btn btn-primary" value="ingresar">
-                    </form>  
+                    <br>
+                    <div>
+                        <form action="/auth" method="POST">
+                            <div class="col-sm-6 form-floating mb-3">
+                                <input type="text" class="form-control" name="user" id="floatingInput" placeholder="user" required>
+                                <label class="fw-lighter"  for="floatingInput">Usuario</label>
+                            </div>
+                            <div class="col-sm-6 form-floating mb-3">
+                                <select class="form-select" id="floatingSelect" name="rol" aria-label="Floating label select example" required>
+                                    <option selected></option>
+                                    <option value="admin">Admin</option>
+                                    <option value="lider">Líder</option>
+                                </select>
+                                <label class="fw-lighter"  for="rol">Rol</label>
+                            </div>
+                            <div class=" col-sm-6 form-floating">
+                                <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
+                                <label class="fw-lighter" for="floatingPassword">Contraseña</label>
+                            </div>
+                            <br>
+                            <div class=" col-sm-6 form-floating">
+                                <input type="submit" class="btn btn-outline-success" value="ingresar">
+                            </div>
+                        </form> 
+                    </div>
 				</div>
                 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -67,7 +69,6 @@
         </script>  
         <% } %> 
 			</div>
-            <!-- verificar la configuracion de SweetAlert2-->
 		</div>
     </body>
 </html>

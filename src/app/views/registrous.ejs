@@ -7,257 +7,336 @@
 		<!----se configura el usuario de registo--->
 		<title>registo</title>
 		<link rel="stylesheet" href="/resources/css/registro.css" />
-
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+		<link href="https://cdn.datatables.net/1.10.23/css/datatables.bootstrap.min.css"rel="stylesheet">
+		<link href="https://cdn.datatables.net/buttons/1.10.23/css/buttons.datatables.min.css"rel="stylesheet">
+		
 	</head>
-	
 	<body>
 		<div class="container">
 			<div class="row g-2 container">
-				<div class="col">
-					<div class="rounded">
-						<img class="logo" src="/resources/img/2.png" alt="" /><br />
-					</div>
+				<div class="col-sm-6">
+					<% if(login) {%> 
+					  <nav class="navbar navbar-light bg-light col-sm-10">
+					    <div class="container-fluid">
+					      <a class="btn btn-outline-success" href="/landi_page"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+						<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+					      </svg></a>
+					      <form class="d-flex">
+						<input class="form-control me-2" 
+						type="search" placeholder=" " aria-label="Search">
+						<button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+						      </svg></button>
+					      </form>
+					      <a class="navbar-brand" href="#">
+						<h5><strong> <%=name%></strong></h5>
+					  <a href="/logout" class="btn btn-outline-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+					    <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+					    <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+					  </svg></a>
+					  <%}else {%>
+					    <script>
+					      window.location.href = "/login";
+					    </script>
+					  <%}%>
+					      </a>
+					    </div>
+					  </nav>
 				</div>
 				<div class="col">
-					<h6 class="card-title">
-						Se requieren estos datos para la la creacion de un usuario y la creacion
-						de su perfil aca solo la puede crear un lider
-					</h6>
+					<div class=" contenedorlogo rounded">
+                                                 <h5 class="card-title fst-italic ">"Nuestra mayor venganza será juntarnos."</h5>
+						 <img class="logo" src="/resources/img/2.png" alt="" /><br />
+					</div>
+				</div> 
+				<div class="row">
+					<div class="col-sm-4">
+						<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#Modalregi" data-whatever="@fat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+							<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+							<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+						</svg></button> 
+					</div>
 				</div>
-				<h5 class="card-title">Datos Personales</h5>
-				<form class="row" action="regis" method="POST">
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Nombres<span class="text-danger">*</span></label
-						>
-						<input
-							type="text"
-							id="nombres"
-							name="nombres"
-							class="form-control"
-							placeholder=" "
-						/>
+				<div class="modal fade" id="Modalregi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg" style="width:80%;" role="document" >
+						<div class="modal-content">
+							<div class="modal-header bg-success text-white">
+								<h5 class="modal-title card-title fw-lighter" id="exampleModalLabel">Datos Personales</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							    <div class="modal-body">
+								<form class="row" action="registrous" method="POST">
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="text" class="form-control" name="nombres" id="floatingInput" placeholder="nombres">
+										<label class="fw-lighter"  for="floatingInput">Nombres</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="text" class="form-control" name="apellidos" id="floatingInput" placeholder="apellidos">
+										<label class="fw-lighter" for="floatingInput">Apellidos</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<select class="form-select" id="floatingSelect" name="documento" aria-label="Floating label select example">
+										  <option selected></option>
+										  <option value="ti">Ti</option>
+										  <option value="cc">Cc</option>
+										  <option value="pasaporte">Pasaporte</option>
+										</select>
+										<label class="fw-lighter"  for="documento">Tipo Documento</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="number" class="form-control" name="identificacion" id="floatingInput" placeholder="Numero Documento">
+										<label class="fw-lighter"  for="floatingInput">Numero Documento</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<select class="form-select" id="floatingSelect" name="genero" aria-label="Floating label select example">
+										  <option selected></option>
+										  <option value="femenino">Femenino</option>
+										  <option value="masculino">Masculino</option>
+										  <option value="otro">Otros</option>
+										</select>
+										<label class="fw-lighter"  for="genero">Genero</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="date" class="form-control" name="fechavinculacion" id="floatingInput" placeholder="fechavinculacion">
+										<label class="fw-lighter"  for="floatingInput">Fecha Vinculacion</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="number" class="form-control" name="remuneracion" id="floatingInput" placeholder="Remuneracion">
+										<label class="fw-lighter"  for="floatingInput">Remuneracion</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<select class="form-select" id="floatingSelect" name="estadoperfil" aria-label="Floating label select example">
+										  <option selected></option>
+										  <option value="activo">Activo</option>
+										  <option value="inactivo">Inactivo</option>
+										</select>
+										<label class="fw-lighter"  for="estadoperfil">Estado Perfil</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="number" class="form-control" name="telefono" id="floatingInput" placeholder="telefono">
+										<label class="fw-lighter"  for="floatingInput">Telefono</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<input type="text" class="form-control" name="direccion" id="floatingInput" placeholder="direccion">
+										<label class="fw-lighter"  for="floatingInput">Direccion</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<select class="form-select" id="floatingSelect" name="tipousuario" aria-label="Floating label select example">
+										  <option selected></option>
+										  <option value="lidermetodologia">Activo</option>
+										  <option value="usermeetodologia">Inactivo</option>
+										  <option value="userexterno">Usuario Externo</option>
+										</select>
+										<label class="fw-lighter"  for="tipousuario">Tipo Usuario</label>
+									</div>
+									<div class="col-sm-6 form-floating mb-3">
+										<select class="form-select" id="floatingSelect" name="dependencia" aria-label="Floating label select example">
+										  <option selected></option>
+										  <option value="semillas">Semillas del futuro</option>
+											<option value="union">Union entre comunas</option>
+											<option value="cuerpos">Cuerpos gramaticales</option>
+											<option value="plantas">Plantas de memoria</option>
+											<option value="partido">Partido de las doñas</option>
+										</select>
+										<label  class="fw-lighter" for="dependencia">Area Desempeño</label>
+									</div>
+									
+									     <div class="col-sm-6 form-floating mb-3">
+										<input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
+										<label class="fw-lighter"  for="floatingInput">Email address</label>
+									      </div>
+									      <div class="col-sm-6 form-floating mb-3">
+										<input type="text" class="form-control" name="comentario" id="floatingInput" placeholder="name@example.com">
+										<label class="fw-lighter"  for="floatingInput">Informacion adicional</label>
+									      </div> 
+									      <input type="hidden" name="id_usuario" value=<%=idperfil%>>
+									<div style="display: inline">
+										<input type="submit" class="btn btn-outline-success" value="enviar" />
+										<a href="/registrous" class="btn btn-outline-danger">Cancelar</a>
+									</div>
+								</form>	   
+							</div>    
+						</div>
 					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Apellidos<span class="text-danger">*</span></label
-						>
-						<input
-							type="text"
-							id="apellidos"
-							name="apellidos"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold" for="rol"
-							>Tipo Documento<span class="text-danger">*</span></label
-						>
-						<select name="documento" id="documento" type="text" class="form-select">
-							<option selected></option>
-							<option value="ti">Ti</option>
-							<option value="cc">Cc</option>
-							<option value="pasaporte">Pasaporte</option>
-						</select>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Numero Documento<span class="text-danger">*</span></label
-						>
-						<input
-							type="text"
-							name="identificacion"
-							id="identificacion"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Genero<span class="text-danger">*</span></label
-						>
-						<select
-							name="genero"
-							id="genero"
-							class="form-select"
-							aria-label="Default select example"
-						>
-							<option selected></option>
-							<option value="femenino">Femenino</option>
-							<option value="masculino">Masculino</option>
-							<option value="otro">otro</option>
-						</select>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Fecha Vinculacion<span class="text-danger">*</span></label
-						>
-						<input
-							name="fechavinculacion"
-							id="fechavinculacion"
-							type="date"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Remuneracion<span class="text-danger">*</span></label
-						>
-						<input
-							name="remuneracion"
-							id="remuneracion"
-							type="text"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Estado Perfil<span class="text-danger">*</span></label
-						>
-						<select
-							name="estadoperfil"
-							id="estadoperfil"
-							class="form-select"
-							aria-label="Default select example"
-						>
-							<option selected></option>
-							<option value="activo">Activo</option>
-							<option value="inactivo">Inactivo</option>
-						</select>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Telefono<span class="text-danger">*</span></label
-						>
-						<input
-							name="telefono"
-							id="telefono"
-							type="text"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Direccion<span class="text-danger">*</span></label
-						>
-						<input
-							name="direccion"
-							id="direccion"
-							type="text"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-4">
-						<!---esta es la vista del lider el cual no podra crear a otro lider ya 
-						que este es  exclusivo para el administrador de la aplicacion-->
-						<label class="font-weight-bold"
-							>Tipo Usuario<span class="text-danger">*</span></label
-						>
-						<select
-							name="tipousuario"
-							id="tipousuario"
-							class="form-select"
-							aria-label="Default select example"
-						>
-							<option selected></option>
-							<option value="lidermetodologia">Lider Metodologia</option>
-							<option value="usermeetodologia">Usuario Metogologia</option>
-							<option value="userexterno">Usuario Externo</option>
-						</select>
-					</div>
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Area Desempeño<span class="text-danger">*</span></label
-						>
-						<select
-							name="dependencia"
-							id="dependencia"
-							class="form-select"
-							aria-label="Default select example"
-						>
-							<option selected></option>
-							<option value="semillas">Semillas del futuro</option>
-							<option value="union">Union entre comunas</option>
-							<option value="cuerpos">Cuerpos gramaticales</option>
-							<option value="plantas">Plantas de memoria</option>
-							<option value="partido">Partido de las doñas</option>
-						</select>
-					</div>					
-					<div class="col-4">
-						<label class="font-weight-bold"
-							>Email<span class="text-danger">*</span></label
-						>
-						<input
-							name="email"
-							id="email"
-							type="email"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div class="col-12">
-						<label class="font-weight-bold"
-							>Informacion Adicional<span class="text-danger">*</span></label
-						>
-						<input
-							name="comentario"
-							id="comentario"
-							type="text"
-							class="form-control"
-							placeholder=" "
-						/>
-					</div>
-					<div style="display: inline">
-						<input type="submit" class="btn btn-primary" value="enviar" />
-						<a href="/metodologia" class="btn btn-danger">Cancelar</a>
-					</div>
-				</form>
+				</div> 
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Documento</th>
+							<th>Numero</th>
+							<th>Genero</th>
+							<th>Vinculacion</th>
+							<th>Remuneracion</th>
+							<th>Perfil</th>
+							<th>Telefono</th>
+							<th>Direccion</th>
+							<th>Usuario</th>
+							<th>Area</th>
+							<th>Email</th>
+							<th>Comenentarios</th>
+							<th>Acciones</th>							
+						</tr>
+						<% for(let i=0;i<use.length; i++){%>
+							<tr>
+								<td><%=use[i].idusuario%></td>
+								<td><%=use[i].nombres%></td>
+								<td><%=use[i].apellidos%></td>
+								<td><%=use[i].documento%></td>
+								<td><%=use[i].identificacion%></td>
+								<td><%=use[i].genero%></td>
+								<td><%=m(use[i].fechavinculacion).format('MM/DD/YYYY')%></td>
+								<td><%=use[i].remuneracion%></td>
+								<td><%=use[i].estadoperfil%></td>
+								<td><%=use[i].telefono%></td>
+								<td><%=use[i].direccion%></td>
+								<td><%=use[i].tipousuario%></td>
+								<td><%=use[i].dependencia%></td>
+								<td><%=use[i].email%></td>
+								<td><%=use[i].comentario%></td>
+								<td><a href="/de/<%=use[i].idusuario%>"  class="btn btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+									<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+									<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+								      </svg></a>
+								      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#Modalregi<%=use[i].idusuario%>" data-whatever="@fat"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+									<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+									<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+								</svg></button></td>
+								<div class="modal fade" id="Modalregi<%=use[i].idusuario%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg" style="width:80%;" role="document" >
+										<div class="modal-content">
+											 <div class="modal-header bg-success text-white">
+												<h5 class="modal-title card-title fw-lighter" id="exampleModalLabel">Editar Usuario</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											 </div>
+											        <div class="modal-body">
+													<form class="row" action="/edite/<%=use[i].idusuario%>" method="POST">
+														<div class="row">
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="text" class="form-control" name="nombres" id="floatingInput" placeholder="nombres" value="<%=use[i].nombres%>">
+																<label class="fw-lighter"  for="floatingInput">Nombres</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="text" class="form-control" name="apellidos" id="floatingInput" placeholder="apellidos"value="<%=use[i].apellidos%>">
+																<label class="fw-lighter" for="floatingInput">Apellidos</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<select class="form-select" id="floatingSelect" name="documento" aria-label="Floating label select example" value="<%=use[i].documento%>">
+																  <option selected></option>
+																  <option value="ti">Ti</option>
+																  <option value="cc">Cc</option>
+																  <option value="pasaporte">Pasaporte</option>
+																</select>
+																<label class="fw-lighter"  for="documento">Tipo Documento</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="number" class="form-control" name="identificacion" id="floatingInput" placeholder="Numero Documento" value="<%=use[i].identificacion%>">
+																<label class="fw-lighter"  for="floatingInput">Numero Documento</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<select class="form-select" id="floatingSelect" name="genero" aria-label="Floating label select example" value="<%=use[i].genero%>">
+																  <option selected></option>
+																  <option value="femenino">Femenino</option>
+																  <option value="masculino">Masculino</option>
+																  <option value="otro">Otros</option>
+																</select>
+																<label class="fw-lighter"  for="genero">Genero</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="date" class="form-control" name="fechavinculacion" id="floatingInput" placeholder="fechavinculacion" value="<%=use[i].fechavinculacion%>">
+																<label class="fw-lighter"  for="floatingInput">Fecha Vinculacion</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="number" class="form-control" name="remuneracion" id="floatingInput" placeholder="Remuneracion" value="<%=use[i].remuneracion%>">
+																<label class="fw-lighter"  for="floatingInput">Remuneracion</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<select class="form-select" id="floatingSelect" name="estadoperfil" aria-label="Floating label select example" value="<%=use[i].estadoperfil%>">
+																  <option selected></option>
+																  <option value="activo">Activo</option>
+																  <option value="inactivo">Inactivo</option>
+																</select>
+																<label class="fw-lighter"  for="estadoperfil">Estado Perfil</label>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="number" class="form-control" name="telefono" id="floatingInput" placeholder="telefono" value="<%=use[i].telefono%>">
+																<label class="fw-lighter"  for="floatingInput">Telefono</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="text" class="form-control" name="direccion" id="floatingInput" placeholder="direccion" value="<%=use[i].direccion%>">
+																<label class="fw-lighter"  for="floatingInput">Direccion</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<select class="form-select" id="floatingSelect" name="tipousuario" aria-label="Floating label select example"value="<%=use[i].tipousuario%>">
+																  <option selected></option>
+																  <option value="lidermetodologia">Activo</option>
+																  <option value="usermeetodologia">Inactivo</option>
+																  <option value="userexterno">Usuario Externo</option>
+																</select>
+																<label class="fw-lighter"  for="tipousuario">Tipo Usuario</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<select class="form-select" id="floatingSelect" name="dependencia" aria-label="Floating label select example"value="<%=use[i].dependencia%>">
+																  <option selected></option>
+																  <option value="semillas">Semillas del futuro</option>
+																	<option value="union">Union entre comunas</option>
+																	<option value="cuerpos">Cuerpos gramaticales</option>
+																	<option value="plantas">Plantas de memoria</option>
+																	<option value="partido">Partido de las doñas</option>
+																</select>
+																<label  class="fw-lighter" for="dependencia">Area Desempeño</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com" value="<%=use[i].email%>">
+																<label class="fw-lighter"  for="floatingInput">Email address</label>
+															</div>
+															<div class="col-sm-6 form-floating mb-3">
+																<input type="text" class="form-control" name="comentario" id="floatingInput" placeholder="name@example.com" value="<%=use[i].comentario%>">
+																<label class="fw-lighter"  for="floatingInput">Informacion adicional</label>
+															      </div> 
+														</div>	
+														<input type="hidden" name="id_usuario" value=<%=idperfil%>>
+														<div style="display: inline">
+															<input type="submit" class="btn btn-outline-success" value="enviar" />
+															<a href="/registrous" class="btn btn-outline-danger">Cancelar</a>
+														</div>
+													</form>	
+											        </div> 
+										</div>
+									</div>
+								</div>								
+							</tr>
+
+						<%}%>
+					</table>
+				</div>	
 			</div>
 		</div>
 		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
 		<% if(typeof alert != "undefined"){%>
 			<script>
 				Swal.fire({
-					tite: "<%=alertTitle%>",
+					title: "<%=alertTitle%>",
 					text: "<%=alertMessage%>",
 					icon: "<%=alertIcon%>",
 					showConfirmButton: "<%=showConfirmButton%>",
-					timer: "<%=timer%>",
+					timer: "<%= timer %>",
 				}).then(() => {
-					window.location = "/registrous.ejs <%=ruta%>";
+					window.location = "/registrous<%=ruta%>";
 				});
 			</script>
 			<%}%>	
 	</body>
 </html>
-<!--
-	idusuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-nombres VARCHAR(30) NOT NULL,
-apellidos VARCHAR(30) NOT NULL,
-documento VARCHAR(30) NOT NULL,
-identificacion VARCHAR(30) NOT NULL,
-genero VARCHAR(10) NOT NULL,
-fechavinculacion DATE NOT NULL,
-remuneracion VARCHAR(25) NULL DEFAULT NULL,
-estadoperfil VARCHAR(25) NULL DEFAULT NULL,
-telefono VARCHAR(20) NOT NULL,
-direccion VARCHAR(20) NOT NULL,
-tipousuario VARCHAR(30) NOT NULL,
-dependencia VARCHAR(30) NOT NULL,
-comentario VARCHAR(500) NOT NULL,
-password VARCHAR(300) NOT NULL,
-email varchar(40) not null,
-
-
-
--->
 

@@ -6,69 +6,79 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!----se configura el usuario de registo--->
 		<title>registo</title>
-		<link rel="stylesheet" href="/resources/css/registro.css" />
-
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-		/>
+		<link rel="stylesheet" href="/resources/css/registro.css"/>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row g-1 container">
-				<div class="col">
-					<div class="rounded">
-						<img class="logo" src="/resources/img/2.png" alt="" /><br />
-					</div>
+				<div class="col-sm-6">
+					<% if(login) {%> 
+					  <nav class="navbar navbar-light bg-light col-sm-10">
+					    <div class="container-fluid">
+					      <a class="btn btn-outline-success" href="/landi_page"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+						<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+						<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+					      </svg></a>
+					      <form class="d-flex">
+						<input class="form-control me-2" 
+						type="search" placeholder=" " aria-label="Search">
+						<button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+						      </svg></button>
+					      </form>
+					      <a class="navbar-brand" href="#">
+						<h5><strong> <%=name%></strong></h5>
+					  <a href="/logout" class="btn btn-outline-success"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+					    <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z"/>
+					    <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+					  </svg></a>
+					  <%}else {%>
+					    <script>
+					      window.location.href = "/login";
+					    </script>
+					  <%}%>
+					      </a>
+					    </div>
+					  </nav>
 				</div>
 				<div class="col">
-					<h6 class="card-title">
-						Se requieren estos datos para la la creacion de un perfil extrayedo 
-						datos de la tabla usuario, esta es la vista
-					</h6>
+					<div class="contenedorlogo rounded">
+                                              <h5 class="card-title fst-italic">"Nuestra mayor venganza será juntarnos."</h5>
+					      <img class="logo" src="/resources/img/2.png" alt="" /><br />
+					</div>
 				</div>
-				<h5 class="card-title">Asiganar Perfil</h5>
-				<form class="row" action="regisperfil" method="POST">
-					<div class="col-3">
-						<label class="font-weight-bold"
-							>Nombres<span class="text-danger">*</span></label
-						>
-						<input
-							type="text"
-							class="form-control"
-							placeholder=""
-							aria-label="First name"
-						/>
-					</div>
-					<div class="col-3">
-						<label class="font-weight-bold"
-							>Usuario<span class="text-danger">*</span></label
-						>
-						<input type="text" class="form-control" placeholder=" " />
-					</div>
-					<div class="col-3">
-						<label class="font-weight-bold"
-							>Rol<span class="text-danger">*</span></label
-						>
-						<select class="form-select" aria-label="Default select example">
-							<option selected></option>
-							<option value="1">Lider Metodologia</option>
-							<option value="2">Usuario Metogologia</option>
-							<option value="3">Usuario Externo</option>
-						</select>
-					</div>
-					<div class="col-3">
-						<label class="font-weight-bold"
-							>Contraseña<span class="text-danger">*</span></label
-						>
-						<input type="password" class="form-control" placeholder=" " />
-					</div>
-					<div style="display: inline">
-						<input type="submit" class="btn btn-primary" value="Crear" />
-						<a href="/landi_page" class="btn btn-danger">Cancelar</a>
-					</div>
-				</form>	
+				<div class="row g-2" >
+				         <h5 class="card-title fw-lighter">Formulario para asiganar un Perfil</h5>
+					 <form action="regisperfil" method="POST">
+						 <div class="row">
+							<div class="col-sm-4 form-floating mb-3">
+								<input type="text" class="form-control" name="user" id="floatingInput" placeholder="user" required>
+								<label class="fw-lighter"  for="floatingInput">Usuario</label>
+							</div>
+							<div class="col-sm-4 form-floating mb-3">
+								<select class="form-select" id="floatingSelect" name="rol" aria-label="Floating label select example" required>
+								    <option selected></option>
+								    <option value="admin">Admin</option>
+								    <option value="lider">Líder</option>
+								</select>
+								<label class="fw-lighter"  for="rol">Rol</label>
+							</div>
+							<div class=" col-sm-4 form-floating mb-3">
+								<input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
+								<label class="fw-lighter" for="floatingPassword">Contraseña</label>
+							</div>
+						 </div>
+					    <div style="display: inline">
+						<input type="submit" class="btn btn-outline-success" value="Crear" />
+						<a href="/regisperfil" class="btn btn-outline-danger">Cancelar</a>
+					     </div>
+					</form> 
+				</div>
+				
 			</div>
+			
 		</div>
 	</body>
 </html>

@@ -11,22 +11,6 @@ body {
     background-size: cover;
     display: flex;
 }
-body::before{
-    content: "";
-    width: 100%;
-    min-height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-input {font: inherit;}
-.container {
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    align-items: center; 
-} 
 .container {
     display: block;
     width: 450px;
@@ -40,18 +24,27 @@ input {font: inherit;}
 }
 
 img.logo {
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    width: 20%;
+    height: 20%;
+    display: flex;
     
-    margin-left: 0%;
-    width: 27%;
-    height: 30%;
-    display: block;
+}
+.contenedorlogo{
+    margin-right: 10;
+    align-items: center;
+    display: flex;
+}
+img.log {
+    margin-left: 10%;
+    width: 70%;
+    height: 70%;
+    display: flex;
 }
 
-img.log {
-    
-    margin-left: 0%;
-    width: 80%;
-    height: 80%;
-    display: block;
-}
+
+
+
 
