@@ -9,8 +9,20 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    display: flex;
+    display: flex;   
 }
+
+body::before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #00000050;
+    z-index: -1;
+}
+
 .container {
     display: block;
     width: 450px;
